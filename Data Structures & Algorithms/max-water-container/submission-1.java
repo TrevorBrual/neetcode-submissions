@@ -1,0 +1,16 @@
+class Solution { // Two pointers
+    public int maxArea(int[] heights) {
+        int l = 0, r = heights.length - 1;
+        int res = 0;
+        while(l<r){
+            int area = Math.min(heights[l], heights[r]) * (r-l);// This computes the current area and updates res with the max area so far
+            res = Math.max(res, area);
+            if(heights[l] <= heights[r]){
+                l++;
+            } else {
+                r--;
+            }
+        }
+        return res;
+    }
+}
